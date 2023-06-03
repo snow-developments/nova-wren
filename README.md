@@ -1,4 +1,8 @@
+<img style="float: right;" src="https://github.com/snow-developments/nova-wren/blob/main/assets/wren@2x.png?raw=true">
+
 # Wren for Nova
+
+<div style="clear: both;"></div>
 
 [![Nova Extension](https://img.shields.io/github/v/tag/snow-developments/nova-lldb?label=nova)](https://extensions.panic.com/extensions/llc.snow/llc.snow.wren)
 
