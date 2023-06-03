@@ -8,6 +8,7 @@
 
     <detectors>
         <extension priority="1.0">wren</extension>
+        <match-content priority="0.5" lines="50">class [A-Z][A-Za-z]* \{</match-content>
     </detectors>
 
     <indentation>
@@ -34,6 +35,8 @@
 
     <brackets>
         <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
     </brackets>
 
     <surrounding-pairs>
@@ -76,6 +79,11 @@
 
         <!-- Tags -->
         <include syntax="self" collection="keywords" />
+
+        <!-- Identifiers -->
+        <scope name="wren.identifier" spell-check="true">
+            <expression>[A-Za-z0-9_]+</expression>
+        </scope>
 
         <!-- Values -->
         <scope name="html.value.entity.numeric">
