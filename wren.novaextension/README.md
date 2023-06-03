@@ -8,7 +8,7 @@ Not every extension will need every item described below. Use your best judgemen
 Let's get started!
 -->
 
-**Wren** provides syntax highlighting and autocompletion for **[Wren](https://wren.io)**.
+**Wren** provides syntax highlighting and autocompletion for the **[Wren](https://wren.io)** scripting language.
 
 <!--
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
@@ -22,15 +22,17 @@ Let's get started!
 🎈 Whether your extension covers the entirety of a language's syntax or a subset, it can be helpful to describe that for users:
 -->
 
-Wren currently supports the following features of Wren:
+This extension currently supports the following features of Wren:
 
-- Lorem
-- Ipsum
-- Dolor
+- Syntax (Work in progress)
+- Completions for:
+	- Keywords
+	- Built-In Classes
+	  - Bool
+	  - Class
+	  - Fiber
+	  - Fn
+	  - System
+	  - etc.
 
-⚠️ Support for:
-
-- Sit
-- Amet 
-
-is planned for a future update.
+> ⚠️ Full support for Wren's Syntax and Class member completions is planned for a future update.
