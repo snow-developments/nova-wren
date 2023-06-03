@@ -6,6 +6,8 @@
 
 **Wren** provides syntax highlighting and autocompletion for the **[Wren](https://wren.io)** scripting language.
 
+Also includes specific support for writings scripts used in the [luxe](https://createwith.luxe) game engine.
+
 <div style="clear: both;"></div>
 
 > ⚠️ This is an unfinished alpha extension.
@@ -26,13 +28,13 @@ This extension currently supports the following features of Wren:
 
 - Syntax (Work in progress)
 - Completions for:
-	- Keywords
-	- Built-In Classes
-	  - Bool
-	  - Class
-	  - Fiber
-	  - Fn
-	  - System
-	  - etc.
+  - Keywords
+  - Built-In Classes
+    - Bool
+    - Class
+    - Fiber
+    - Fn
+    - System
+    - etc.
 
 > ⚠️ Full support for Wren's Syntax and Class member completions is planned for a future update.
