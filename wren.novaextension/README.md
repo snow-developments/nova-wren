@@ -14,7 +14,7 @@ Let's get started!
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
 -->
 
-![](https://nova.app/images/en/dark/editor.png)
+![](https://github.com/snow-developments/nova-wren/blob/main/assets/screenshots/syntax-and-completion.png?raw=true)
 
 ## Language Support
 
