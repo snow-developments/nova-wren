@@ -12,10 +12,10 @@
     
     <indentation>
         <increase>
-            <expression>^\s*{s*$)</expression>
+            <expression>^\s*(\{\s*)$</expression>
         </increase>
         <decrease>
-            <expression>^\s*(})</expression>
+            <expression>^\s*(\})</expression>
         </decrease>
     </indentation>
     
