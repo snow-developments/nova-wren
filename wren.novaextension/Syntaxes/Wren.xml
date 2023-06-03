@@ -263,6 +263,12 @@
                 <capture number="1" name="wren.keyword" />
                 <capture number="2" name="wren.identifier" />
             </scope>
+            <scope name="wren.class.method.foreign">
+                <symbol type="method" name-selector="wren.identifier" />
+                <expression>\b(foreign)\s+([a-z][A-Za-z_]+)</expression>
+                <capture number="1" name="wren.keyword" />
+                <capture number="2" name="wren.identifier" />
+            </scope>
             <scope name="wren.class.method">
                 <symbol type="method" name-selector="wren.identifier" />
                 <expression>\s([a-z][A-Za-z_]+)\(</expression>

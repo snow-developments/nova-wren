@@ -25,6 +25,8 @@ class Wren {
   // Setter
   name=(value) { _name = value }
 
+  foreign fetch()
+
   flyTo(city) {
 	System.print("Flying to %(city)")
   }
