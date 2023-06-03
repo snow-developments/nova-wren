@@ -16,6 +16,11 @@ System.print("Hello, world!")
 
 class Wren {
   _field
+  
+  // Getter
+  field { _field }
+  // Setter
+  field=(value) { _field = value }
 
   flyTo(city) {
 	System.print("Flying to %(city)")

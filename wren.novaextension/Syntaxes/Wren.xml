@@ -82,32 +82,17 @@
         <include syntax="self" collection="values" />
         <include syntax="self" collection="identifiers" />
 
-        <!-- Values -->
-        <scope name="html.value.entity.numeric">
-            <expression>&amp;\#[0-9]+;</expression>
-        </scope>
-        <scope name="wren.value.entity.named">
-            <strings prefix="&amp;" suffix=";" word-boundary="false">
-                <string>amp</string>
-                <string>lt</string>
-                <string>gt</string>
-                <string>apos</string>
-                <string>quot</string>
-            </strings>
-        </scope>
-
         <!-- Classes -->
         <scope name="wren.class">
             <symbol type="class">
                 <context behavior="subtree" />
             </symbol>
             <starts-with>
-                <expression>\b(class)\s+([A-Za-z0-9_]+)\b</expression>
+                <expression>\b(class)\s+([A-Z][A-Za-z0-9_]+)\b</expression>
                 <capture number="1" name="wren.keyword.class" />
                 <capture number="2" name="wren.identifier" />
             </starts-with>
             <ends-with />
-            <!-- New in Nova 4 -->
             <subscopes anchored="true">
                 <scope name="wren.class.body">
                     <starts-with>
@@ -120,6 +105,98 @@
                     </ends-with>
                     <subscopes>
                         <include syntax="self" />
+                        <scope name="wren.class.method">
+                            <starts-with>
+                                <expression>([a-z][A-Za-z_]+)\b</expression>
+                                <capture number="1" name="wren.identifier.method" />
+                            </starts-with>
+                            <ends-with />
+                            <subscopes anchored="true">
+                                <scope name="wren.method.arguments">
+                                    <starts-with>
+                                        <expression>\(</expression>
+                                        <capture number="0" name="mylang.function.arguments.bracket" />
+                                    </starts-with>
+                                    <ends-with>
+                                        <expression>\)</expression>
+                                        <capture number="0" name="mylang.function.arguments.bracket" />
+                                    </ends-with>
+                                    <subscopes>
+                                        <include syntax="self" collection="identifiers" />
+                                    </subscopes>
+                                </scope>
+                                <scope name="wren.method.body">
+                                    <starts-with>
+                                        <expression>\{</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </starts-with>
+                                    <ends-with>
+                                        <expression>\}</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </ends-with>
+                                    <subscopes>
+                                        <!-- ... -->
+                                    </subscopes>
+                                </scope>
+                            </subscopes>
+                        </scope>
+                        <scope name="wren.class.getter">
+                            <starts-with>
+                                <expression>([a-z][A-Za-z_]+)\b</expression>
+                                <capture number="1" name="wren.identifier.getter" />
+                            </starts-with>
+                            <ends-with />
+                            <subscopes anchored="true">
+                                <scope name="wren.getter.body">
+                                    <starts-with>
+                                        <expression>\{</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </starts-with>
+                                    <ends-with>
+                                        <expression>\}</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </ends-with>
+                                    <subscopes>
+                                        <include syntax="self" />
+                                    </subscopes>
+                                </scope>
+                            </subscopes>
+                        </scope>
+                        <scope name="wren.class.setter">
+                            <starts-with>
+                                <expression>([a-z][A-Za-z_]+)=\b</expression>
+                                <capture number="1" name="wren.identifier.setter" />
+                            </starts-with>
+                            <ends-with />
+                            <subscopes anchored="true">
+                                <scope name="wren.setter.arguments">
+                                    <starts-with>
+                                        <expression>\(</expression>
+                                        <capture number="0" name="mylang.function.arguments.bracket" />
+                                    </starts-with>
+                                    <ends-with>
+                                        <expression>\)</expression>
+                                        <capture number="0" name="mylang.function.arguments.bracket" />
+                                    </ends-with>
+                                    <subscopes>
+                                        <include syntax="self" collection="identifiers" />
+                                    </subscopes>
+                                </scope>
+                                <scope name="wren.method.body">
+                                    <starts-with>
+                                        <expression>\{</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </starts-with>
+                                    <ends-with>
+                                        <expression>\}</expression>
+                                        <capture number="0" name="wren.block.bracket" />
+                                    </ends-with>
+                                    <subscopes>
+                                        <include syntax="self" />
+                                    </subscopes>
+                                </scope>
+                            </subscopes>
+                        </scope>
                     </subscopes>
                 </scope>
             </subscopes>
