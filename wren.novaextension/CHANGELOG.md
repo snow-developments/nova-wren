@@ -1,3 +1,7 @@
-## Version 1.0
+<!-- See https://github.com/snow-developments/nova-lldb/blob/main/lldb.novaextension/CHANGELOG.md -->
 
-Initial release
+## Version 0.1
+
+Initial release.
+
+> ⚠️ This is an unfinished alpha release.

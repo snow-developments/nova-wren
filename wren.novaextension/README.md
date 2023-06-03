@@ -8,11 +8,7 @@ Not every extension will need every item described below. Use your best judgemen
 Let's get started!
 -->
 
-<!--
-🎈 Include a brief description of the features your syntax extension provides. For example:
--->
-
-**Wren** provides syntax highlighting and autocompletion for **An Important Language**.
+**Wren** provides syntax highlighting and autocompletion for **[Wren](https://wren.io)**.
 
 <!--
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
@@ -26,21 +22,15 @@ Let's get started!
 🎈 Whether your extension covers the entirety of a language's syntax or a subset, it can be helpful to describe that for users:
 -->
 
-Wren currently supports the following features of Important Language:
+Wren currently supports the following features of Wren:
 
 - Lorem
 - Ipsum
 - Dolor
 
-Support for:
+⚠️ Support for:
 
 - Sit
 - Amet 
 
 is planned for a future update.
-
-<!--
-👋 That's it! Happy developing!
-
-P.S. If you'd like, you can remove these comments before submitting your extension 😉
--->
