@@ -5,7 +5,12 @@
         <expression>\b[a-zA-Z]*</expression>
         <set>wren.keywords</set>
     </provider>
-    
+    <provider>
+        <syntax>wren</syntax>
+        <expression>\b[a-zA-Z]*</expression>
+        <set>wren.builtins.classes</set>
+    </provider>
+
     <!-- Keywords -->
     <set name="wren.keywords">
         <completion string="as" />
@@ -29,5 +34,28 @@
         <completion string="true" />
         <completion string="var" />
         <completion string="while" />
+    </set>
+
+    <!-- Built-in Classes -->
+    <set name="wren.builtins.classes">
+        <completion string="Bool" />
+        <completion string="Class" />
+        <completion string="Fiber" />
+        <completion string="Fn" />
+        <completion string="List" />
+        <completion string="Map" />
+        <completion string="Null" />
+        <completion string="Num" />
+        <completion string="Object" />
+        <completion string="Range" />
+        <completion string="Sequence" />
+        <completion string="String" />
+        <completion string="System" />
+    </set>
+
+    <!-- Built-in System class methods -->
+    <!-- FIXME: -->
+    <set name="wren.builtins.system">
+        <completion string="print" />
     </set>
 </completions>
