@@ -21,6 +21,9 @@
     </indentation>
 
     <comments>
+        <single>
+            <expression>//</expression>
+        </single>
         <multiline>
             <starts-with>
                 <expression>/*</expression>
