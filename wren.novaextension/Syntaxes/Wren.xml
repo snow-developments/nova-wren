@@ -57,7 +57,12 @@
                 <expression>\?&gt;</expression>
             </ends-with>
         </scope>
-        
+        <scope name="wren.import">
+            <symbol type="reference" />
+            <expression>\b(import)\b</expression>
+            <capture number="1" name="wren.keyword.import" />
+        </scope>
+
         <include syntax="self" collection="comments" />
         
         <!-- Declarations -->
@@ -75,7 +80,7 @@
             <capture number="1" name="wren.keyword.class" />
             <capture number="2" name="wren.identifier" />
         </scope>
-        
+
         <include syntax="self" collection="keywords" />
         <include syntax="self" collection="strings" />
         <include syntax="self" collection="values" />

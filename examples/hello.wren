@@ -8,9 +8,11 @@
 
 /* This is /* a nested */ comment. */
 
-var foo = false;
-var bar = 7;
-var fizz = null;
+import "beverages" for Coffee, Tea
+
+var foo = false
+var bar = 7
+var fizz = null // It's nothing!
 
 System.print("Hello, world!")
 
