@@ -28,7 +28,7 @@ class Wren {
   foreign fetch()
 
   flyTo(city) {
-	System.print("Flying to %(city)")
+    System.print("Flying to %(city)")
   }
 }
 
