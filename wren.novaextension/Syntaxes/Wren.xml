@@ -20,6 +20,8 @@
     </indentation>
     
     <comments>
+        <!-- TODO: Support nested comments -->
+        <!-- e.g. `/* This is /* a nested */ comment. */` -->
         <multiline>
             <starts-with>
                 <expression>\/\*</expression>
