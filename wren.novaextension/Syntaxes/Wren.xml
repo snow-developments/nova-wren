@@ -79,6 +79,8 @@
 
         <!-- Keywords -->
         <include syntax="self" collection="keywords" />
+        <!-- Values -->
+        <include syntax="self" collection="values" />
         <!-- Identifiers -->
         <include syntax="self" collection="identifiers" />
 
@@ -130,7 +132,7 @@
         <!-- Keywords -->
         <collection name="keywords">
             <scope name="wren.keyword">
-                <strings word-boundary="false">
+                <strings word-boundary="true">
                     <string>as</string>
                     <string>break</string>
                     <string>class</string>
@@ -163,6 +165,26 @@
             </scope>
             <scope name="wren.identifier" spell-check="true" >
                 <expression>[A-Za-z0-9_]+</expression>
+            </scope>
+        </collection>
+        
+        <!-- Values -->
+        <collection name="values">
+            <!-- <scope name="wren.literal.boolean">
+                <strings word-boundary="true">
+                    <string>true</string>
+                    <string>false</string>
+                </strings>
+            </scope> -->
+            <scope name="wren.literal.number">
+                <!-- FIXME: Support scientific and hexadecimal notation -->
+                <!--
+                    0.0314159e02
+                    0.0314159e+02
+                    314.159e-02
+                    0xcaffe2
+                -->
+                <expression>-?[\-0-9]+(\.?[\-0-9]+)?</expression>
             </scope>
         </collection>
     </collections>

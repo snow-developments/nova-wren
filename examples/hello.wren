@@ -8,6 +8,9 @@
 
 /* This is /* a nested */ comment. */
 
+var foo = false;
+var bar = 7;
+
 System.print("Hello, world!")
 
 class Wren {
