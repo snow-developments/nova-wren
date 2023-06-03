@@ -10,6 +10,7 @@
 
 var foo = false;
 var bar = 7;
+var fizz = null;
 
 System.print("Hello, world!")
 

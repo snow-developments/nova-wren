@@ -169,12 +169,12 @@
         <!-- Values -->
         <collection name="values">
             <!-- Boolean -->
-            <!-- <scope name="wren.literal.boolean">
+            <scope name="wren.literal.boolean">
                 <strings word-boundary="true">
                     <string>true</string>
                     <string>false</string>
                 </strings>
-            </scope> -->
+            </scope>
             <!-- Number -->
             <scope name="wren.literal.number">
                 <!-- FIXME: Support scientific and hexadecimal notation -->
@@ -185,6 +185,25 @@
                     0xcaffe2
                 -->
                 <expression>-?[\-0-9]+(\.?[\-0-9]+)?</expression>
+            </scope>
+            <!-- TODO: Add Ranges (See https://wren.io/values.html#ranges) -->
+            <scope name="wren.literal.null">
+                <expression>null</expression>
+            </scope>
+            <scope name="wren.literal.list">
+                <starts-with>
+                    <expression>\[</expression>
+                    <capture number="0" name="wren.delimiter.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>\]</expression>
+                    <capture number="0" name="wren.delimiter.bracket" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="identifiers" />
+                    <include syntax="self" collection="values" />
+                    <include syntax="self" collection="strings" />
+                </subscopes>
             </scope>
         </collection>
         <collection name="strings">
