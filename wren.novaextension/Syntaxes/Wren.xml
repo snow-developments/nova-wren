@@ -74,18 +74,18 @@
                 <expression>\*\/</expression>
             </ends-with>
         </scope>
-
-        <include syntax="self" collection="keywords" />
-        <include syntax="self" collection="strings" />
-        <include syntax="self" collection="values" />
-        <include syntax="self" collection="identifiers" />
-        <include syntax="self" collection="blocks" />
+        
+        <!-- Declarations -->
+        <scope name="wren.variable">
+            <symbol type="variable" name-selector="wren.identifier" />
+            <expression>\b(var)\s+([A-Za-z0-9_]+)\b</expression>
+            <capture number="1" name="wren.keyword.var" />
+            <capture number="2" name="wren.identifier" />
+        </scope>
 
         <!-- Classes -->
         <scope name="wren.class">
-            <symbol type="class">
-                <context behavior="subtree" />
-            </symbol>
+            <symbol type="class" name-selector="wren.identifier" />
             <starts-with>
                 <expression>\b(class)\s+([A-Z][A-Za-z0-9_]+)\b</expression>
                 <capture number="1" name="wren.keyword.class" />
@@ -93,9 +93,30 @@
             </starts-with>
             <ends-with />
             <subscopes anchored="true">
-                <include syntax="self" collection="block" />
+                <scope name="wren.block">
+                    <symbol type="block">
+                        <context behavior="subtree" />
+                    </symbol>
+                    <starts-with>
+                        <expression>\{</expression>
+                        <capture number="0" name="wren.block.bracket" />
+                    </starts-with>
+                    <ends-with>
+                        <expression>\}</expression>
+                        <capture number="0" name="wren.block.bracket" />
+                    </ends-with>
+                    <subscopes>
+                        <include syntax="self" collection="members" />
+                    </subscopes>
+                </scope>
             </subscopes>
         </scope>
+        
+        <include syntax="self" collection="keywords" />
+        <include syntax="self" collection="strings" />
+        <include syntax="self" collection="values" />
+        <include syntax="self" collection="identifiers" />
+        <include syntax="self" collection="blocks" />
     </scopes>
 
     <collections>
@@ -114,7 +135,6 @@
                     <capture number="0" name="wren.block.bracket" />
                 </ends-with>
                 <subscopes>
-                    <include syntax="self" collection="members" />
                     <include syntax="self" />
                 </subscopes>
             </scope>
@@ -151,6 +171,9 @@
         
         <!-- Identifiers -->
         <collection name="identifiers">
+            <scope name="wren.identifier.field" spell-check="true">
+                <expression>_[A-Za-z0-9_]+</expression>
+            </scope>
             <scope name="wren.identifier" spell-check="true" >
                 <expression>[A-Za-z0-9_]+</expression>
             </scope>
