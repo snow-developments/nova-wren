@@ -11,6 +11,8 @@
 System.print("Hello, world!")
 
 class Wren {
+  _field
+
   flyTo(city) {
 	System.print("Flying to %(city)")
   }

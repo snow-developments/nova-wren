@@ -77,13 +77,10 @@
             </ends-with>
         </scope>
 
-        <!-- Tags -->
+        <!-- Keywords -->
         <include syntax="self" collection="keywords" />
-
         <!-- Identifiers -->
-        <scope name="wren.identifier" spell-check="true">
-            <expression>[A-Za-z0-9_]+</expression>
-        </scope>
+        <include syntax="self" collection="identifiers" />
 
         <!-- Values -->
         <scope name="html.value.entity.numeric">
@@ -97,6 +94,35 @@
                 <string>apos</string>
                 <string>quot</string>
             </strings>
+        </scope>
+
+        <!-- Classes -->
+        <scope name="wren.class">
+            <symbol type="class">
+                <context behavior="subtree" />
+            </symbol>
+            <starts-with>
+                <expression>\b(class)\s+([A-Za-z0-9_]+)\b</expression>
+                <capture number="1" name="wren.keyword.class" />
+                <capture number="2" name="wren.identifier" />
+            </starts-with>
+            <ends-with />
+            <!-- New in Nova 4 -->
+            <subscopes anchored="true">
+                <scope name="wren.class.body">
+                    <starts-with>
+                        <expression>\{</expression>
+                        <capture number="0" name="wren.block.bracket" />
+                    </starts-with>
+                    <ends-with>
+                        <expression>\}</expression>
+                        <capture number="0" name="wren.block.bracket" />
+                    </ends-with>
+                    <subscopes>
+                        <include syntax="self" />
+                    </subscopes>
+                </scope>
+            </subscopes>
         </scope>
     </scopes>
 
@@ -127,6 +153,16 @@
                     <string>var</string>
                     <string>while</string>
                 </strings>
+            </scope>
+        </collection>
+        
+        <!-- Identifiers -->
+        <collection name="identifiers">
+            <scope name="wren.identifier" spell-check="true" >
+                <expression>[A-Za-z0-9_]+</expression>
+            </scope>
+            <scope name="wren.identifier.field" spell-check="true">
+                <expression>_[A-Za-z0-9_]+</expression>
             </scope>
         </collection>
     </collections>
