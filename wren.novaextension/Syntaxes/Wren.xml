@@ -77,11 +77,9 @@
             </ends-with>
         </scope>
 
-        <!-- Keywords -->
         <include syntax="self" collection="keywords" />
-        <!-- Values -->
+        <include syntax="self" collection="strings" />
         <include syntax="self" collection="values" />
-        <!-- Identifiers -->
         <include syntax="self" collection="identifiers" />
 
         <!-- Values -->
@@ -170,12 +168,14 @@
         
         <!-- Values -->
         <collection name="values">
+            <!-- Boolean -->
             <!-- <scope name="wren.literal.boolean">
                 <strings word-boundary="true">
                     <string>true</string>
                     <string>false</string>
                 </strings>
             </scope> -->
+            <!-- Number -->
             <scope name="wren.literal.number">
                 <!-- FIXME: Support scientific and hexadecimal notation -->
                 <!--
@@ -185,6 +185,45 @@
                     0xcaffe2
                 -->
                 <expression>-?[\-0-9]+(\.?[\-0-9]+)?</expression>
+            </scope>
+        </collection>
+        <collection name="strings">
+            <!-- Strings -->
+            <scope name="wren.literal.string.raw">
+                <starts-with>
+                    <expression>"""</expression>
+                    <capture number="0" name="wren.delimiter.quote" />
+                </starts-with>
+                <ends-with>
+                    <expression>"""</expression>
+                    <capture number="0" name="wren.delimiter.quote" />
+                </ends-with>
+            </scope>
+            <scope name="wren.literal.string">
+                <starts-with>
+                    <expression>"</expression>
+                    <capture number="0" name="wren.delimiter.quote" />
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="wren.delimiter.quote" />
+                </ends-with>
+                <subscopes>
+                    <scope name="wren.literal.string.interpolation">
+                        <starts-with>
+                            <expression>\%\(</expression>
+                            <capture number="0" name="wren.delimiter.quote" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>\)</expression>
+                            <capture number="0" name="wren.delimiter.quote" />
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="identifiers" />
+                            <include syntax="self" collection="values" />
+                        </subscopes>
+                    </scope>
+                </subscopes>
             </scope>
         </collection>
     </collections>
