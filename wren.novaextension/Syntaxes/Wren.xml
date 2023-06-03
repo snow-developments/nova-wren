@@ -158,11 +158,11 @@
         
         <!-- Identifiers -->
         <collection name="identifiers">
-            <scope name="wren.identifier" spell-check="true" >
-                <expression>[A-Za-z0-9_]+</expression>
-            </scope>
             <scope name="wren.identifier.field" spell-check="true">
                 <expression>_[A-Za-z0-9_]+</expression>
+            </scope>
+            <scope name="wren.identifier" spell-check="true" >
+                <expression>[A-Za-z0-9_]+</expression>
             </scope>
         </collection>
     </collections>
