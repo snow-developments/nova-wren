@@ -1,0 +1,4 @@
+{
+  "editor.default_syntax" : "typescript",
+  "index.use_scm_ignored_files" : true
+}
