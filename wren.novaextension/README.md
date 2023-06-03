@@ -8,6 +8,8 @@
 
 <div style="clear: both;"></div>
 
+> ⚠️ This is an unfinished alpha extension.
+
 <!--
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
 -->
