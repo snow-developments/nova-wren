@@ -1,0 +1,24 @@
+{
+  "name": "nova-wren",
+  "private": true,
+  "version": "0.2.0",
+  "description": "Wren programming language integration for Nova.",
+  "main": "index.js",
+  "scripts": {
+    "test": "false",
+    "prepublishOnly": "nova extension publish wren.novaextension"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snow-developments/nova-wren.git"
+  },
+  "author": "Snow Developments",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snow-developments/nova-wren/issues"
+  },
+  "homepage": "https://github.com/snow-developments/nova-wren#readme",
+  "devDependencies": {
+    "@types/nova-editor": "*"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "identifier": "llc.snow.wren",
+    "name": "Wren",
+    "organization": "Snow Developments",
+    "description": "Wren programming language integration for Nova.",
+    "version": "0.1",
+    "categories": ["languages"]
+}
