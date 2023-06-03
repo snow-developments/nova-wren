@@ -21,14 +21,12 @@
     </indentation>
 
     <comments>
-        <!-- TODO: Support nested comments -->
-        <!-- e.g. `/* This is /* a nested */ comment. */` -->
         <multiline>
             <starts-with>
-                <expression>\/\*</expression>
+                <expression>/*</expression>
             </starts-with>
             <ends-with>
-                <expression>\*\/</expression>
+                <expression>*/</expression>
             </ends-with>
         </multiline>
     </comments>
@@ -56,24 +54,8 @@
                 <expression>\?&gt;</expression>
             </ends-with>
         </scope>
-
-        <!-- Comments -->
-        <scope name="wren.comment" spell-check="true">
-            <starts-with>
-                <expression>\/\/</expression>
-            </starts-with>
-            <ends-with>
-                <expression>$</expression>
-            </ends-with>
-        </scope>
-        <scope name="wren.comment.block" spell-check="true">
-            <starts-with>
-                <expression>\/\*</expression>
-            </starts-with>
-            <ends-with>
-                <expression>\*\/</expression>
-            </ends-with>
-        </scope>
+        
+        <include syntax="self" collection="comments" />
         
         <!-- Declarations -->
         <scope name="wren.variable">
@@ -86,30 +68,9 @@
         <!-- Classes -->
         <scope name="wren.class">
             <symbol type="class" name-selector="wren.identifier" />
-            <starts-with>
-                <expression>\b(class)\s+([A-Z][A-Za-z0-9_]+)\b</expression>
-                <capture number="1" name="wren.keyword.class" />
-                <capture number="2" name="wren.identifier" />
-            </starts-with>
-            <ends-with />
-            <subscopes anchored="true">
-                <scope name="wren.block">
-                    <symbol type="block">
-                        <context behavior="subtree" />
-                    </symbol>
-                    <starts-with>
-                        <expression>\{</expression>
-                        <capture number="0" name="wren.block.bracket" />
-                    </starts-with>
-                    <ends-with>
-                        <expression>\}</expression>
-                        <capture number="0" name="wren.block.bracket" />
-                    </ends-with>
-                    <subscopes>
-                        <include syntax="self" collection="members" />
-                    </subscopes>
-                </scope>
-            </subscopes>
+            <expression>\b(class)\s+([A-Z][A-Za-z0-9_]+)\b</expression>
+            <capture number="1" name="wren.keyword.class" />
+            <capture number="2" name="wren.identifier" />
         </scope>
         
         <include syntax="self" collection="keywords" />
@@ -120,6 +81,28 @@
     </scopes>
 
     <collections>
+        <!-- Comments -->
+        <collection name="comments">
+            <scope name="wren.comment" spell-check="true">
+                <starts-with>
+                    <expression>\/\/</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>$</expression>
+                </ends-with>
+            </scope>
+            <!-- TODO: Support nested comments -->
+            <!-- e.g. `/* This is /* a nested */ comment. */` -->
+            <scope name="wren.comment.block" spell-check="true">
+                <starts-with>
+                    <expression>\/\*</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>\*\/</expression>
+                </ends-with>
+            </scope>
+        </collection>
+    
         <!-- Blocks -->
         <collection name="blocks">
             <scope name="wren.block">
@@ -135,6 +118,7 @@
                     <capture number="0" name="wren.block.bracket" />
                 </ends-with>
                 <subscopes>
+                    <include syntax="self" collection="members" />
                     <include syntax="self" />
                 </subscopes>
             </scope>
@@ -259,110 +243,34 @@
             </scope>
         </collection>
         <collection name="members">
-            <scope name="wren.class.field" spell-check="true">
-                <expression>_[A-Za-z0-9_]+</expression>
+            <scope name="wren.class.constructor">
+                <symbol type="constructor" name-selector="wren.identifier" />
+                <expression>\b(construct)\s+([a-z][A-Za-z_]+)</expression>
+                <capture number="1" name="wren.keyword" />
+                <capture number="2" name="wren.identifier" />
             </scope>
-            <scope name="wren.class.method" optional="true">
-                <starts-with>
-                    <expression>([a-z][A-Za-z_]+)\b</expression>
-                    <capture number="1" name="wren.identifier.method" />
-                </starts-with>
-                <ends-with />
-                <subscopes anchored="true">
-                    <scope name="wren.method.arguments">
-                        <starts-with>
-                            <expression>\(</expression>
-                            <capture number="0" name="mylang.function.arguments.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\)</expression>
-                            <capture number="0" name="mylang.function.arguments.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" collection="identifiers" />
-                        </subscopes>
-                    </scope>
-                    <scope name="wren.method.body">
-                        <symbol type="block">
-                            <context behavior="subtree" />
-                        </symbol>
-                        <starts-with>
-                            <expression>\{</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\}</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <!-- ... -->
-                        </subscopes>
-                    </scope>
-                </subscopes>
+            <scope name="wren.class.method.static">
+                <symbol type="static-method" name-selector="wren.identifier" />
+                <expression>\b(static)\s+([a-z][A-Za-z_]+)</expression>
+                <capture number="1" name="wren.keyword" />
+                <capture number="2" name="wren.identifier" />
             </scope>
-            <scope name="wren.class.getter" optional="true">
-                <starts-with>
-                    <expression>([a-z][A-Za-z_]+)\b</expression>
-                    <capture number="1" name="wren.identifier.getter" />
-                </starts-with>
-                <ends-with />
-                <subscopes anchored="true">
-                    <scope name="wren.getter.body">
-                        <symbol type="block">
-                            <context behavior="subtree" />
-                        </symbol>
-                        <starts-with>
-                            <expression>\{</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\}</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" />
-                        </subscopes>
-                    </scope>
-                </subscopes>
+            <scope name="wren.class.method">
+                <symbol type="method" name-selector="wren.identifier" />
+                <expression>\s([a-z][A-Za-z_]+)\(</expression>
+                <capture number="1" name="wren.identifier" />
             </scope>
-            <scope name="wren.class.setter" optional="true">
-                <starts-with>
-                    <expression>([a-z][A-Za-z_]+)=\b</expression>
-                    <capture number="1" name="wren.identifier.setter" />
-                </starts-with>
-                <ends-with />
-                <subscopes anchored="true">
-                    <scope name="wren.setter.arguments">
-                        <starts-with>
-                            <expression>\(</expression>
-                            <capture number="0" name="mylang.function.arguments.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\)</expression>
-                            <capture number="0" name="mylang.function.arguments.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" collection="identifiers" />
-                        </subscopes>
-                    </scope>
-                    <scope name="wren.method.body">
-                        <symbol type="block">
-                            <context behavior="subtree" />
-                        </symbol>
-                        <starts-with>
-                            <expression>\{</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\}</expression>
-                            <capture number="0" name="wren.block.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" />
-                        </subscopes>
-                    </scope>
-                </subscopes>
+            <!-- FIXME: -->
+            <!-- <scope name="wren.class.getter">
+                <symbol type="getter" name-selector="wren.identifier" />
+                <expression>\s([a-z][A-Za-z_]+)\s+\{</expression>
+                <capture number="1" name="wren.identifier" />
             </scope>
+            <scope name="wren.class.setter">
+                <symbol type="setter" name-selector="wren.identifier" />
+                <expression>\s([a-z][A-Za-z_]+)=\(</expression>
+                <capture number="1" name="wren.identifier" />
+            </scope> -->
         </collection>
     </collections>
 </syntax>

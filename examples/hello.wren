@@ -15,12 +15,13 @@ var fizz = null;
 System.print("Hello, world!")
 
 class Wren {
-  _field
-  
+  construct new() {}
+  static with() {}
+
   // Getter
-  field { _field }
+  name { _name }
   // Setter
-  field=(value) { _field = value }
+  name=(value) { _name = value }
 
   flyTo(city) {
 	System.print("Flying to %(city)")
