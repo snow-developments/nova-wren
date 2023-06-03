@@ -2,14 +2,14 @@
 <syntax name="wren">
     <meta>
         <name>Wren</name>
-        <type>structured</type>
+        <type>script</type>
         <preferred-file-extension>wren</preferred-file-extension>
     </meta>
-    
+
     <detectors>
         <extension priority="1.0">wren</extension>
     </detectors>
-    
+
     <indentation>
         <increase>
             <expression>^\s*(\{\s*)$</expression>
@@ -18,7 +18,7 @@
             <expression>^\s*(\})</expression>
         </decrease>
     </indentation>
-    
+
     <comments>
         <!-- TODO: Support nested comments -->
         <!-- e.g. `/* This is /* a nested */ comment. */` -->
@@ -31,11 +31,11 @@
             </ends-with>
         </multiline>
     </comments>
-    
+
     <brackets>
         <pair open="{" close="}" />
     </brackets>
-    
+
     <surrounding-pairs>
         <pair open="{" close="}" />
         <pair open="[" close="]" />
@@ -44,7 +44,7 @@
         <pair open="&quot;" close="&quot;" />
         <pair open="`" close="`" />
     </surrounding-pairs>
-    
+
     <scopes>
         <!-- Meta -->
         <scope name="wren.meta.processing">
@@ -55,7 +55,7 @@
                 <expression>\?&gt;</expression>
             </ends-with>
         </scope>
-        
+
         <!-- Comments -->
         <scope name="wren.comment" spell-check="true">
             <starts-with>
@@ -73,10 +73,10 @@
                 <expression>\*\/</expression>
             </ends-with>
         </scope>
-        
+
         <!-- Tags -->
         <include syntax="self" collection="keywords" />
-        
+
         <!-- Values -->
         <scope name="html.value.entity.numeric">
             <expression>&amp;\#[0-9]+;</expression>
@@ -91,33 +91,33 @@
             </strings>
         </scope>
     </scopes>
-    
+
     <collections>
         <!-- Keywords -->
         <collection name="keywords">
             <scope name="wren.keyword">
                 <strings word-boundary="false">
-                <string>as</string>
-                <string>break</string>
-                <string>class</string>
-                <string>construct</string>
-                <string>continue</string>
-                <string>else</string>
-                <string>false</string>
-                <string>for</string>
-                <string>foreign</string>
-                <string>if</string>
-                <string>import</string>
-                <string>in</string>
-                <string>is</string>
-                <string>null</string>
-                <string>return</string>
-                <string>static</string>
-                <string>super</string>
-                <string>this</string>
-                <string>true</string>
-                <string>var</string>
-                <string>while</string>
+                    <string>as</string>
+                    <string>break</string>
+                    <string>class</string>
+                    <string>construct</string>
+                    <string>continue</string>
+                    <string>else</string>
+                    <string>false</string>
+                    <string>for</string>
+                    <string>foreign</string>
+                    <string>if</string>
+                    <string>import</string>
+                    <string>in</string>
+                    <string>is</string>
+                    <string>null</string>
+                    <string>return</string>
+                    <string>static</string>
+                    <string>super</string>
+                    <string>this</string>
+                    <string>true</string>
+                    <string>var</string>
+                    <string>while</string>
                 </strings>
             </scope>
         </collection>
