@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <completions>
     <provider>
-        <selector>wren</selector>
-        <expression>\b[a-zA-Z0-9-_]*</expression>
-        <set>wren.entities</set>
+        <syntax>wren</syntax>
+        <expression>\b[a-zA-Z]*</expression>
+        <set>wren.keywords</set>
     </provider>
     
-    <!-- Entities -->
-    <set name="wren.entities">
-        <completion string="&quot;" />
-        <completion string="&amp;" />
-        <completion string="&apos;" />
-        <completion string="&lt;" />
-        <completion string="&gt;" />
+    <!-- Keywords -->
+    <set name="wren.keywords">
+        <completion string="as" />
+        <completion string="break" />
+        <completion string="class" />
+        <completion string="construct" />
+        <completion string="continue" />
+        <completion string="else" />
+        <completion string="false" />
+        <completion string="for" />
+        <completion string="foreign" />
+        <completion string="if" />
+        <completion string="import" />
+        <completion string="in" />
+        <completion string="is" />
+        <completion string="null" />
+        <completion string="return" />
+        <completion string="static" />
+        <completion string="super" />
+        <completion string="this" />
+        <completion string="true" />
+        <completion string="var" />
+        <completion string="while" />
     </set>
 </completions>
