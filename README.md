@@ -4,7 +4,7 @@
 
 <div style="clear: both;"></div>
 
-[![Nova Extension](https://img.shields.io/github/v/tag/snow-developments/nova-lldb?label=nova)](https://extensions.panic.com/extensions/llc.snow/llc.snow.wren)
+[![Nova Extension](https://img.shields.io/github/v/tag/snow-developments/nova-wren?label=nova)](https://extensions.panic.com/extensions/llc.snow/llc.snow.wren)
 
 ## Development
 
