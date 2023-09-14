@@ -11,6 +11,13 @@
           "trigger": "class"
         },
         {
+          "content": "construct $0($1) {\n  $2\n}",
+          "name": "constructor",
+          "scope": "editor",
+          "syntax": "wren",
+          "trigger": "construct"
+        },
+        {
           "content": "$0($1) {\n  $2\n}",
           "name": "method",
           "scope": "editor",

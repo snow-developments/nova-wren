@@ -2,6 +2,12 @@
 
 ## Version 0.3
 
+### Additions
+
+Add a constructor snippet.
+
+### Fixes
+
 Fixed indentation rules in Wren grammar.
 
 > ⚠️ This is an unfinished alpha release.
