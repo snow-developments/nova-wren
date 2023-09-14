@@ -37,4 +37,4 @@ This extension currently supports the following features of Wren:
     - System
     - etc.
 
-> ⚠️ Full support for Wren's Syntax and Class member completions is planned for a future update.
+> ⚠️ Full support for variable and class member completions is planned for a future update.
