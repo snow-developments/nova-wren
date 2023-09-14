@@ -3,7 +3,7 @@
   "name": "Wren",
   "organization": "Snow Developments",
   "description": "Wren programming language integration for Nova.",
-  "version": "0.2",
+  "version": "0.3",
   "license": "MIT",
   "categories": ["languages", "completions"],
   "min_runtime": "4.0",

@@ -14,10 +14,10 @@
 
     <indentation>
         <increase>
-            <expression>^\s*(\{\s*)$</expression>
+            <expression>(\{|\()</expression>
         </increase>
         <decrease>
-            <expression>^\s*(\})</expression>
+            <expression>(\}|\))</expression>
         </decrease>
     </indentation>
 

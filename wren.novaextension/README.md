@@ -26,7 +26,7 @@ Also includes specific support for writings scripts used in the [luxe](https://c
 
 This extension currently supports the following features of Wren:
 
-- Syntax (Work in progress)
+- Syntax
 - Completions for:
   - Keywords
   - Built-In Classes

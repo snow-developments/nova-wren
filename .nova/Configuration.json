@@ -1,4 +1,5 @@
 {
   "editor.default_syntax" : "typescript",
-  "index.use_scm_ignored_files" : true
+  "index.use_scm_ignored_files" : true,
+  "workspace.color" : 12
 }
