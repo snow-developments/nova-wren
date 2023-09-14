@@ -1,5 +1,7 @@
 <!-- See https://github.com/snow-developments/nova-lldb/blob/main/lldb.novaextension/CHANGELOG.md -->
 
+> ⚠️ This is an unfinished extension.
+
 ## Version 0.3
 
 ### Additions
@@ -10,16 +12,10 @@ Add a constructor snippet.
 
 Fixed indentation rules in Wren grammar.
 
-> ⚠️ This is an unfinished alpha release.
-
 ## Version 0.2
 
 Added support for [luxe](https://createwith.luxe) Wren scripts.
 
-> ⚠️ This is an unfinished alpha release.
-
 ## Version 0.1
 
 Initial release.
-
-> ⚠️ This is an unfinished alpha release.

@@ -10,7 +10,7 @@ Also includes specific support for writings scripts used in the [luxe](https://c
 
 <div style="clear: both;"></div>
 
-> ⚠️ This is an unfinished alpha extension.
+> ⚠️ This is an unfinished extension.
 
 <!--
 🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
