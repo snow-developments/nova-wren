@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/snow-developments/nova-wren#readme",
   "devDependencies": {
-    "@types/nova-editor": "*"
+    "@types/nova-editor": "*",
+    "tree-sitter-cli": "^0.20.8"
   }
 }
