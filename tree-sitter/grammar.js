@@ -73,7 +73,6 @@ module.exports = grammar({
 	name: 'wren',
 
 	rules: {
-		// TODO: add the actual grammar rules
 		source_file: $ => seq(
 			optional($.unix_interpreter),
 			optional($._statement_sequence)
@@ -81,6 +80,7 @@ module.exports = grammar({
 
 		// This is the '#!' that can appear at the start of files to indicate
 		// which executable should run them on UNIX.
+		// See https://en.wikipedia.org/wiki/Shebang_(Unix)
 		unix_interpreter: $ => /#!.*/,
 
 		_statement: $ => choice(
@@ -96,7 +96,7 @@ module.exports = grammar({
 			$.var_decl,
 			$._expression,
 
-			// FIXME There's a bug in tree-sitter causing it to not recognise
+			// FIXME: There's a bug in tree-sitter causing it to not recognise
 			// rules only used in extras. Thus we have to use the comment
 			// rule from somewhere in the main rules, otherwise block_comment
 			// will cause a crash.
@@ -239,7 +239,7 @@ module.exports = grammar({
 
 			// Setter calls
 			// Note that these still use the standard precedence, despite the
-			// existance of the setter precedence. That's because (trying to
+			// existence of the setter precedence. That's because (trying to
 			// mimic Wren's parser) Wren's parser doesn't know whether or not
 			// a function call is a setter until it's already selected it.
 			prec.right(func_call_prec, seq(...rec_and_name(), '=', $._expression)),
@@ -269,7 +269,7 @@ module.exports = grammar({
 
 		// The infix function calls - https://wren.io/syntax.html
 		// To avoid a huge number of nearly-identical rules, we'll be
-		// a bit hacky and use some imperitive code to generate
+		// a bit hacky and use some imperative code to generate
 		// the rules.
 		infix_call: $ => {
 			let choices = [];
