@@ -11,9 +11,10 @@
 Test the extension:
 
 1. `npm install`
-2. `make`
-3. `open wren.novaextension`
-4. Click Install
+2. `npm run tree-sitter:generate`
+3. `make -C wren/projects/make wren`
+4. `open wren.novaextension`
+5. Click Install
 
 ## License
 

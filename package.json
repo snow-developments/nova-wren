@@ -5,6 +5,8 @@
   "description": "Wren programming language integration for Nova.",
   "main": "index.js",
   "scripts": {
+    "tree-sitter:generate": "cd tree-sitter && tree-sitter generate --no-bindings",
+    "tree-sitter:playground": "cd tree-sitter && tree-sitter build-wasm && tree-sitter playground",
     "test": "false",
     "prepublishOnly": "nova extension publish wren.novaextension"
   },
