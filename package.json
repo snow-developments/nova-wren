@@ -9,7 +9,8 @@
     "tree-sitter:test": "cd tree-sitter && tree-sitter test",
     "tree-sitter:playground": "cd tree-sitter && tree-sitter build-wasm && tree-sitter playground",
     "test": "false",
-    "prepublishOnly": "nova extension publish wren.novaextension"
+    "prepublish:queries": "cp tree-sitter/queries/highlights.scm wren.novaextension/Queries/. && cp tree-sitter/queries/injections.scm wren.novaextension/Queries/.",
+    "prepublishOnly": "npm run prepublish:queries && nova extension publish wren.novaextension"
   },
   "repository": {
     "type": "git",

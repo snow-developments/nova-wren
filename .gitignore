@@ -1,3 +1,9 @@
+# Tree Sitter Queries
+wren.novaextension/Queries/highlights.scm
+wren.novaextension/Queries/injections.scm
+
+# Node
+
 # Logs
 logs
 *.log
