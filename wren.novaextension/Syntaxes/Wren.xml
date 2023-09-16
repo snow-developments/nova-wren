@@ -11,6 +11,14 @@
         <extension priority="0.75">luxe</extension>
         <match-content priority="0.5" lines="50">class [A-Z][A-Za-z]* \{</match-content>
     </detectors>
+    
+    <tree-sitter>
+        <highlights />
+        <symbols />
+        <symbols path="builtins.scm" />
+        <folds />
+        <injections />
+    </tree-sitter>
 
     <indentation>
         <increase>

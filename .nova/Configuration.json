@@ -1,5 +1,8 @@
 {
   "editor.default_syntax" : "typescript",
   "index.use_scm_ignored_files" : true,
+  "todo.workspace-ignore-paths" : [
+    "\/Users\/chancesnow\/GitHub\/nova-wren\/wren"
+  ],
   "workspace.color" : 12
 }
