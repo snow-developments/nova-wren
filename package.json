@@ -10,7 +10,7 @@
     "tree-sitter:playground": "cd tree-sitter && tree-sitter build-wasm && tree-sitter playground",
     "tree-sitter:clean": "make -C tree-sitter -f integrations/Nova/Makefile clean",
     "test": "npm run tree-sitter:test",
-    "prepublish:parser": "cd tree-sitter && integrations/Nova/compile_parser.sh ./ /Applications/Nova.app",
+    "prepublish:parser": "cd tree-sitter && integrations/Nova/compile_parser.sh ./ /Applications/Nova.app && cp libtree-sitter-wren.dylib ../wren.novaextension/Syntaxes/.",
     "prepublish:queries": "cp tree-sitter/queries/highlights.scm wren.novaextension/Queries/. && cp tree-sitter/queries/injections.scm wren.novaextension/Queries/.",
     "prepublishOnly": "npm run prepublish:queries && nova extension publish wren.novaextension"
   },
