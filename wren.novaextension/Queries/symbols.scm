@@ -3,7 +3,7 @@
 (stmt_import module: (string_literal) (#set! role file))
 
 ; Declarations
-(var_decl name: (identifier) @name (#set! role variable))
+(var_decl name: ((identifier) @name) @subtree (#set! role variable))
 
 ; Function Calls
 ; TODO: (#set! role argument) for function args
@@ -50,7 +50,7 @@
 )
 (foreign_method
   "static"? @_is_static "construct"? @_is_construct
-  name: ((identifier) @name) @displayname
+  name: (((identifier) @name) @displayname) @subtree
   ; Append parameter list to the display name
   (param_list ("="? @_is_setter) "(" @_is_method)? @displayname
   ; Determine the role of this method
@@ -60,8 +60,9 @@
   (#set-if-eq! @_is_setter "=" role setter)
   (#set-if-eq! @_is_static "static" role static-method)
   (#set-if-eq! @_is_construct "construct" role constructor)
-) @subtree
-(foreign_method name: ((operator_method_name) @name) @displayname
+)
+(foreign_method
+  name: (((operator_method_name) @name) @displayname) @subtree
   (#set! role method)
   (#prefix! @displayname "Operator: ")
-) @subtree
+)
