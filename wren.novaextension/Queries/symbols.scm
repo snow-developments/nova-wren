@@ -10,19 +10,19 @@
 
 ; Closures
 ; QUESTION: Add @subtree capture after `(closure_block)`?
-(function_call (closure_block)
+(function_call (closure_block "{" @start "}" @end)
   (#set! role closure)
   (#set! name.query "Names/ClosureFunctionCall.scm")
 ) @name.target
 ; QUESTION: Add @subtree capture after `(closure_block)`?
-(this_call name: (identifier) @name (closure_block)
+(this_call name: (identifier) @name (closure_block "{" @start "}" @end)
   (#set! role closure)
   (#set! displayname.query "Names/ClosureThisCall.scm")
   (#prefix! @name "#")
 ) @displayname.target
 
 ; Classes
-(class_definition name: (identifier) @name (#set! role class))
+(class_definition name: (identifier) @name "{" @start "}" @end (#set! role class))
 
 ; TODO: (#set! role property) for class `_vars`.
 ; TODO: (#set! role static-property) for `static getter {}` getters.
