@@ -33,6 +33,7 @@
         <single>
             <expression>//</expression>
         </single>
+        <!-- FIXME: See hello.wren -->
         <multiline>
             <starts-with>
                 <expression>/*</expression>
