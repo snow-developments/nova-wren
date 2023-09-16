@@ -16,6 +16,14 @@ Test the extension:
 4. `open wren.novaextension`
 5. Click Install
 
+### Testing
+
+#### Wren Tree Sitter Parser
+
+```sh
+npm run tree-sitter:test
+```
+
 ## License
 
 [MIT License](https://opensource.org/licenses/MIT)

@@ -1,0 +1,12 @@
+{
+  "name": "tree-sitter-wren",
+  "tree-sitter": [
+    {
+      "scope": "source.wren",
+      "file-types": [
+        "wren"
+      ],
+      "injection-regex": "wren"
+    }
+  ]
+}
