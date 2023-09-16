@@ -1,4 +1,8 @@
-((stmt_block) @subtree (#set! role block))
-((closure_block) @subtree (#set! role function))
-((class_definition "{" @start) @end.after (#set! role type))
-((method (stmt_block) @subtree) (#set! role type))
+; Blocks
+((stmt_block "{" @start "}" @end) (#set! role block))
+; Functions
+((closure_block "{" @start "}" @end) (#set! role function))
+; Classes
+((class_definition "{" @start "}" @end) (#set! role type))
+; Methods
+((method (stmt_block "{" @start "}" @end)) (#set! role function))

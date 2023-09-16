@@ -29,6 +29,9 @@
 ; Literals
 (number) @number
 (string_literal) @string
+; String Interpolations
+(interpolated_string) @string
+; TODO: Inject the `_expression` context into interpolated values
 
 ; Attributes
 (attribute) @attribute
