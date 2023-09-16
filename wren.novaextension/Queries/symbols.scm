@@ -1,6 +1,6 @@
 ; Imports
 ; TODO: (#set! role file) for `import "./file" for X`
-(stmt_import module: () (#set! role file))
+(stmt_import module: (string_literal) (#set! role file))
 
 ; Declarations
 (var_decl name: (identifier) @name (#set! role variable))
@@ -10,18 +10,16 @@
 
 ; Closures
 ; QUESTION: Add @subtree capture after `(closure_block)`?
-(function_call
-  @name.target (closure_block)
+(function_call (closure_block)
   (#set! role closure)
   (#set! name.query "Names/ClosureFunctionCall.scm")
-)
+) @name.target
 ; QUESTION: Add @subtree capture after `(closure_block)`?
-(class_definition @displayname.target (this_call
-  @displayname.target name: (identifier) @name (closure_block)
+(this_call name: (identifier) @name (closure_block)
   (#set! role closure)
   (#set! displayname.query "Names/ClosureThisCall.scm")
   (#prefix! @name "#")
-))
+) @displayname.target
 
 ; Classes
 (class_definition name: (identifier) @name (#set! role class))
@@ -33,9 +31,9 @@
 
 ; Methods
 (method name: (identifier) @name (#set! role method))
-(method name: (operator_method_name) @name (#set! role method) (#prefix! @displayname "Operator: "))
+(method name: ((operator_method_name) @name) @displayname (#set! role method) (#prefix! @displayname "Operator: "))
 (foreign_method name: (identifier) @name (#set! role method))
-(foreign_method name: (operator_method_name) @name (#set! role method) (#prefix! @displayname "Operator: "))
+(foreign_method name: ((operator_method_name) @name) @displayname (#set! role method) (#prefix! @displayname "Operator: "))
 
 ; TODO: (#set! role static-method) for `static method()` methods.
 ; TODO: (#set! role constructor) for `construct new()` constructors.
