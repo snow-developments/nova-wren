@@ -15,7 +15,6 @@
     <tree-sitter>
         <highlights />
         <symbols />
-        <symbols path="builtins.scm" />
         <folds />
         <injections />
     </tree-sitter>
