@@ -32,6 +32,8 @@ class Wren {
   }
 }
 
+var fn = Fn.new {|foo, bar|}
+
 var adjectives = Fiber.new {
   ["small", "clean", "fast"].each {|word| Fiber.yield(word) }
 }

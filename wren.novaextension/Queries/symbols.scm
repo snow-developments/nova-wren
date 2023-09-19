@@ -1,9 +1,24 @@
 ; Imports
-; TODO: (#set! role file) for `import "./file" for X`
-(stmt_import module: (string_literal) (#set! role file))
+; TODO: Only set this role for relative imports, e.g. `./file`
+(stmt_import module: (string_literal) @subtree (#set! role file))
 
 ; Declarations
-(var_decl name: ((identifier) @name) @subtree (#set! role variable))
+(var_decl name: ((identifier) @name) @displayname @subtree
+  ; If the variable is set to a `Fn.new` closure, assign this variable the `function` role
+  (function_call
+    receiver: (_) @receiver
+    name: (identifier) @method
+    (closure_block
+      ("{" @_is_func) @start
+      (closure_params)? @displayname
+      "}" @end
+    )
+  )?
+  (#set! role variable)
+  (#set-if-eq! @_is_func "{" role function)
+  (#set-if-not-eq! @receiver "Fn" role variable)
+  (#set-if-not-eq! @method "new" role variable)
+)
 
 ; Function Calls
 ; TODO: (#set! role argument) for function args
