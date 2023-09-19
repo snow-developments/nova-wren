@@ -25,11 +25,13 @@
 
 ; Closures
 ; QUESTION: Add @subtree capture after `(closure_block)`?
+; FIXME: This query does not to function. Remove it?
 (function_call (closure_block "{" @start "}" @end)
   (#set! role closure)
   (#set! name.query "Names/ClosureFunctionCall.scm")
 ) @name.target
 ; QUESTION: Add @subtree capture after `(closure_block)`?
+; FIXME: This query does not to function. Remove it?
 (this_call name: (identifier) @name (closure_block "{" @start "}" @end)
   (#set! role closure)
   (#set! displayname.query "Names/ClosureThisCall.scm")
@@ -57,12 +59,6 @@
   (#set-if-eq! @_is_static "static" role static-method)
   (#set-if-eq! @_is_construct "construct" role constructor)
 )
-; FIXME: (method name: (identifier) @name (stmt_block "{" @start "}" @end) (#set! role getter))
-(method name: ((operator_method_name) @name) @displayname
-  (stmt_block "{" @start "}" @end)
-  (#set! role method)
-  (#prefix! @displayname "Operator: ")
-)
 (foreign_method
   "static"? @_is_static "construct"? @_is_construct
   name: (((identifier) @name) @displayname) @subtree
@@ -78,6 +74,12 @@
 )
 (foreign_method
   name: (((operator_method_name) @name) @displayname) @subtree
+  (#set! role method)
+  (#prefix! @displayname "Operator: ")
+)
+; Operator Overload
+(method name: ((operator_method_name) @name) @displayname
+  (stmt_block "{" @start "}" @end)
   (#set! role method)
   (#prefix! @displayname "Operator: ")
 )
